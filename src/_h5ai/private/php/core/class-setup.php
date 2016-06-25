@@ -23,7 +23,7 @@ class Setup {
                 'value' => $value,
                 'found' => $this->store[$key]
             ]);
-            exit;
+            return;
         }
         if (!is_string($value) && !is_bool($value)) {
             Logger::log('setup value neither string nor boolean', [
