@@ -55,6 +55,13 @@ class Setup {
         $this->set('SCRIPT_NAME', $_SERVER['SCRIPT_NAME']);
         $this->set('SERVER_SOFTWARE', $_SERVER['SERVER_SOFTWARE']);
         $this->set('HTTP_USER_AGENT', $_SERVER['HTTP_USER_AGENT']);
+
+        if (array_key_exists('H5AI_ROOT_HREF', $_SERVER)) {
+            $this->set('ROOT_HREF', Util::normalize_path($_SERVER['H5AI_ROOT_HREF'], true));
+        }
+        if (array_key_exists('H5AI_ROOT_PATH', $_SERVER)) {
+            $this->set('ROOT_PATH', Util::normalize_path($_SERVER['H5AI_ROOT_PATH'], false));
+        }
     }
 
     private function add_php_checks() {
