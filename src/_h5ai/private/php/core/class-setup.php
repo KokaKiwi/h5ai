@@ -16,8 +16,8 @@ class Setup {
         $this->add_sys_cmd_checks();
     }
 
-    private function set($key, $value) {
-        if (array_key_exists($key, $this->store)) {
+    private function set($key, $value, $force = false) {
+        if (!$force && array_key_exists($key, $this->store)) {
             Logger::log('setup key already taken', [
                 'key' => $key,
                 'value' => $value,
